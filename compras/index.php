@@ -1,5 +1,6 @@
 <?php
     include_once("conexion.php"); 
+    $page = 1;
 ?>
 <html>
     <head>    
@@ -40,16 +41,16 @@
                     $queryusuarios = mysqli_query($conn, "SELECT * FROM compras ORDER BY fecha asc");
                 }
                 while($mostrar = mysqli_fetch_array($queryusuarios)){   
-                    echo "<tr>";
-                    echo "<td>".$mostrar['cod']."</td>";
-                    echo "<td>".$mostrar['fecha']."</td>";
-                    echo "<td>".$mostrar['IDcliente']."</td>";
-                    echo "<td>".$mostrar['estadoPedido']."</td>";
-                    echo "<td>".$mostrar['metodoPago']."</td>";
-                    echo "<td>"."$".$mostrar['precioTotal']."</td>";  
-                    echo "<td style='width:26%'><button class='btn btn-success' href=\"editar.php?cod=$mostrar[cod]\">Modificar</button> | <button class='btn btn-danger' href=\"eliminar.php?cod=$mostrar[cod]\" onClick=\"return confirm('¿Estás seguro de eliminar a $mostrar[cod]?')\">Eliminar</button></td>";           
-                }
-            ?>
+                ?>
+                <tr>
+                    <td><?= $mostrar['cod'] ?></td>
+                    <td><?= $mostrar['fecha'] ?></td>
+                    <td><?= $mostrar['IDcliente'] ?></td>
+                    <td><?= $mostrar['estadoPedido'] ?></td>
+                    <td><?= $mostrar['metodoPago'] ?></td>
+                    <td><?= $mostrar['precioTotal'] ?></td>
+                    <td style='width:26%'><a class='btn btn-success' href=<?= "editar.php?cod=$mostrar[cod]" ?>>Modificar</a> | <a class='btn btn-danger' href=<?= "eliminar.php?cod=$mostrar[cod]" ?> onClick=<?="return confirm('¿Estás seguro de eliminar a $mostrar[cod]?')"?>>Eliminar</a></td>";           
+            <?php } ?>
         </table>
         <script>
             function abrirform() {

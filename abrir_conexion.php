@@ -3,13 +3,14 @@
 	$host = "localhost";    // sera el valor de nuestra BD 
 	$basededatos = "arteriadb";    // sera el valor de nuestra BD 
 	$usuariodb = "root";    // sera el valor de nuestra BD 
-	$clavedb = "";    // sera el valor de nuestra BD 
+	$clavedb = "Pa22w0rd";    // sera el valor de nuestra BD 
 
 	//Lista de Tablas
 	$tabla_usu = "usuario"; 
 	$tabla_com = "compras";
 	$tabla_cat = "categorias"; 
-	$tabla_pro = "productos";  
+	$tabla_pro = "productos"; 
+	$tabla_login = "Login";
 		   // tabla de usuarios
 	
 

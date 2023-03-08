@@ -1,5 +1,6 @@
 <?php
 include_once("conexion.php"); 
+$page = 1;
 ?>
 
 <html>
@@ -45,20 +46,20 @@ include_once("conexion.php");
                 }
                 $numerofila = 0;
                 while($mostrar = mysqli_fetch_array($queryusuarios)){   
-                    $numerofila++;    
-                    echo "<tr>";
-                    echo "<td>".$numerofila."</td>";
-                    echo "<td>".$mostrar['cod']."</td>";
-                    echo "<td>".$mostrar['nom_pro']."</td>";
-                    echo "<td>".$mostrar['id_catego']."</td>";
-                    echo "<td>".$mostrar['marca']."</td>";
-                    echo "<td>".$mostrar['precio']."</td>";
-                    echo "<td>".$mostrar['imagenes']."</td>";
-                    echo "<td>".$mostrar['fecha_fab']."</td>";
-                    echo "<td>".$mostrar['descripcion']."</td>"; 
-                    echo "<td style='width:26%'><button class='btn btn-success' href=\"editar.php?cod=$mostrar[cod]\">Modificar</button> | <button class='btn btn-danger' href=\"eliminar.php?cod=$mostrar[cod]\" onClick=\"return confirm('¿Estás seguro de eliminar a $mostrar[nom_pro]?')\">Eliminar</button></td>";           
-                }
-            ?>
+                    $numerofila++;
+            ?>                        
+                    <tr>
+                     <td><?= $numerofila ?></td>
+                     <td><?= $mostrar['cod'] ?></td>
+                     <td><?= $mostrar['nom_pro'] ?></td>
+                     <td><?= $mostrar['id_catego'] ?></td>
+                     <td><?= $mostrar['marca'] ?></td>
+                     <td><?= $mostrar['precio'] ?></td>
+                     <td><?= $mostrar['imagenes'] ?></td>
+                     <td><?= $mostrar['fecha_fab'] ?></td>
+                     <td><?= $mostrar['descripcion'] ?></td> 
+                     <td style='width:26%'><a class='btn btn-success' href= <?= "editar.php?cod=$mostrar[cod]" ?>>Modificar</a> | <a class='btn btn-danger' href=<?= "eliminar.php?cod=$mostrar[cod]" ?> onClick=<?="return confirm('¿Estás seguro de eliminar a $mostrar[nom_pro]?')"?>>Eliminar</a></td></tr>
+                <?php } ?>
         </table>
         <script>
             function abrirform() {
